@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Analyze - Fake News Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/analyze.css">
+    <link rel="stylesheet" href="styles/image-analysis-PRO.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">FakeNews Detective</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="analyze.html" class="active">Analyze</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="analyze-container">
+        <div class="analyze-box">
+            <header class="analyze-header">
+                <h1>Fake News Analysis</h1>
+                <p>Analyze news articles or images for authenticity using advanced AI models.</p>
+            </header>
+
+            <!-- Text Analysis Section -->
+            <section class="text-analysis-section">
+                <h2>Text-based Analysis</h2>
+                <form class="text-analysis-form">
+                    <div class="input-group">
+                        <textarea id="web-input" placeholder="Paste news article or claim here..."></textarea>
+                    </div>
+                    <button type="button" class="analyze-btn" id="web-check-btn">
+                        <i class="btn-icon">📝</i>
+                        <span>Analyze Article</span>
+                    </button>
+                </form>
+                <div id="web-result" class="result"></div>
+            </section>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e2e8f0;">
+
+            <!-- Image Analysis Section -->
+            <section class="image-analysis-section">
+                <h2>Image-based Analysis</h2>
+                <form id="image-fake-news-form" class="image-fake-news-form" enctype="multipart/form-data"
+                    autocomplete="off">
+                    <label for="image-input" style="font-weight: 500;">Upload News Image:</label>
+                    <input type="file" id="image-input" accept="image/*" required>
+                    <div id="image-preview-container"></div>
+                    <button type="button" class="analyze-btn" id="analyze-image-btn" disabled>
+                        <i class="btn-icon">🖼️</i>
+                        <span>Analyze Image</span>
+                    </button>
+                    <div id="extracted-text" class="extracted-text" style="display:none;"></div>
+                    <div id="image-analysis-result" class="analysis-result"></div>
+                </form>
+            </section>
+
+            <!-- Add this where your other analysis buttons are -->
+            <button onclick="window.location.href='/audio-analysis'">Audio Analysis</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div style="text-align:center; color:#64748b; font-size:0.95rem; padding:1.5rem 0;">
+            &copy; 2025 FakeNews Detective. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="web.js"></script>
+    <script src="image-analysis.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#image') {
+                const imageSection = document.querySelector('.image-analysis-section');
+                if (imageSection) imageSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+
+</html>

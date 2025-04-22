@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Fake News Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/analyze.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .audio-analysis-card {
+            max-width: 480px;
+            margin: 3rem auto 2rem auto;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 24px;
+            box-shadow: 0 6px 32px rgba(80,80,180,0.10);
+            padding: 2.5rem 2rem 2rem 2rem;
+            animation: slideUp 0.5s ease;
+        }
+        .audio-analysis-header h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #6a82fb, #fc5c7d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .audio-analysis-header p {
+            color: #64748b;
+            font-size: 1.08rem;
+            margin-bottom: 1.2rem;
+        }
+        #audio-input {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            margin-bottom: 1.2rem;
+            background: #f9fafb;
+        }
+        .analyze-btn {
+            background: linear-gradient(90deg, #6a82fb, #fc5c7d);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 0.7rem 1.5rem;
+            font-size: 1.08rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 1.2rem 0 0.5rem 0;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(80,80,180,0.08);
+        }
+        .analyze-btn:disabled {
+            background: #bfc9e1;
+            cursor: not-allowed;
+        }
+        .transcript, .analysis-result {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            color: #3a3a60;
+            box-shadow: 0 1px 6px rgba(80,80,180,0.06);
+            word-break: break-word;
+        }
+        .transcript { border-left: 4px solid #6a82fb; }
+        .analysis-result { border-left: 4px solid #fc5c7d; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">FakeNews Detective</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="analyze.html">Analyze</a></li>
+            <li><a href="audio-analysis.html" class="active">Audio Analysis</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="audio-analysis-card">
+            <header class="audio-analysis-header">
+                <h1>Audio Fake News Analysis</h1>
+                <p>Upload a <b>.wav</b> audio file to transcribe and analyze for fake news.</p>
+            </header>
+            <form id="audio-upload-form" enctype="multipart/form-data" autocomplete="off">
+                <label for="audio-input">Upload Audio (.wav):</label>
+                <input type="file" id="audio-input" accept=".wav" required>
+                <button type="submit" class="analyze-btn" id="analyze-audio-btn" disabled>Analyze Audio</button>
+            </form>
+            <div id="audio-results">
+                <div id="audio-transcript" class="transcript" style="display:none;"></div>
+                <div id="audio-analysis-result" class="analysis-result" style="display:none;"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        &copy; 2025 FakeNews Detective. All rights reserved.
+    </footer>
+    <script>
+        const audioInput = document.getElementById('audio-input');
+        const analyzeBtn = document.getElementById('analyze-audio-btn');
+        const transcriptDiv = document.getElementById('audio-transcript');
+        const resultDiv = document.getElementById('audio-analysis-result');
+        audioInput.addEventListener('change', function () {
+            analyzeBtn.disabled = !audioInput.files.length;
+        });
+        document.getElementById('audio-upload-form').onsubmit = async function(e) {
+            e.preventDefault();
+            transcriptDiv.style.display = "none";
+            resultDiv.style.display = "none";
+            transcriptDiv.textContent = "";
+            resultDiv.textContent = "";
+            analyzeBtn.disabled = true;
+            analyzeBtn.textContent = "Analyzing...";
+            const file = audioInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            try {
+                const resp = await fetch('/analyze-audio', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await resp.json();
+                if (data.transcript) {
+                    transcriptDiv.textContent = "Transcript: " + data.transcript;
+                    transcriptDiv.style.display = "block";
+                }
+                if (data.gemini_result) {
+                    resultDiv.textContent = "Gemini Analysis: " + data.gemini_result;
+                    resultDiv.style.display = "block";
+                }
+            } catch (err) {
+                resultDiv.textContent = "Error analyzing audio.";
+                resultDiv.style.display = "block";
+            }
+            analyzeBtn.disabled = false;
+            analyzeBtn.textContent = "Analyze Audio";
+        };
+    </script>
+</body>
+</html>

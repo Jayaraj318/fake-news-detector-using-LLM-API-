@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Image Fake News Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/analyze.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/image-analysis.css">
+    <link rel="stylesheet" href="styles/image-analysis-pro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Extra UI polish for this page */
+        .image-analysis-card {
+            max-width: 480px;
+            margin: 3rem auto 2rem auto;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 24px;
+            box-shadow: 0 6px 32px rgba(80, 80, 180, 0.10);
+            padding: 2.5rem 2rem 2rem 2rem;
+            animation: slideUp 0.5s ease;
+        }
+
+        .image-analysis-header h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #6a82fb, #fc5c7d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-analysis-header p {
+            color: #64748b;
+            font-size: 1.08rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .image-fake-news-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.08rem;
+            color: #3a3a60;
+        }
+
+        #image-input {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            margin-bottom: 1.2rem;
+            background: #f9fafb;
+        }
+
+        #image-preview-container {
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        #image-preview-container img {
+            max-width: 90%;
+            max-height: 180px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(80, 80, 180, 0.10);
+            margin-top: 0.5rem;
+        }
+
+        .analyze-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, #6a82fb, #fc5c7d);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 0.7rem 1.5rem;
+            font-size: 1.08rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 1.2rem 0 0.5rem 0;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(80, 80, 180, 0.08);
+        }
+
+        .analyze-btn:disabled {
+            background: #bfc9e1;
+            cursor: not-allowed;
+        }
+
+        .extracted-text,
+        .analysis-result {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            color: #3a3a60;
+            box-shadow: 0 1px 6px rgba(80, 80, 180, 0.06);
+            word-break: break-word;
+        }
+
+        .extracted-text {
+            border-left: 4px solid #6a82fb;
+        }
+
+        .analysis-result {
+            border-left: 4px solid #fc5c7d;
+        }
+
+        @media (max-width: 600px) {
+            .image-analysis-card {
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">FakeNews Detective</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="analyze.html">Analyze</a></li>
+            <li><a href="image-analysis.html" class="active">Image Analysis</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="image-analysis-card">
+            <header class="image-analysis-header">
+                <h1>Image-based Fake News Analysis</h1>
+                <p>Upload a news image to detect authenticity and extract text using AI.</p>
+            </header>
+            <form class="image-fake-news-form" enctype="multipart/form-data" autocomplete="off">
+                <label for="image-input">Upload News Image:</label>
+                <input type="file" id="image-input" accept="image/*">
+                <div id="image-preview-container"></div>
+                <button type="button" class="analyze-btn" id="analyze-image-btn" disabled>
+                    <span class="btn-icon" style="font-size:1.2rem;">🖼️</span>
+                    <span>Analyze Image</span>
+                </button>
+                <div id="extracted-text" class="extracted-text" style="display:none;"></div>
+                <div id="image-analysis-result" class="analysis-result"></div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        &copy; 2025 FakeNews Detective. All rights reserved.
+    </footer>
+    <script src="image-analysis-pro.js"></script>
+    <script>
+        // UI: Show preview and enable button
+        const imageInput = document.getElementById('image-input');
+        const previewContainer = document.getElementById('image-preview-container');
+        const analyzeBtn = document.getElementById('analyze-image-btn');
+        const extractedTextDiv = document.getElementById('extracted-text');
+        const analysisResultDiv = document.getElementById('image-analysis-result');
+
+        imageInput.addEventListener('change', function () {
+            previewContainer.innerHTML = '';
+            if (this.files && this.files[0]) {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(this.files[0]);
+                img.onload = () => URL.revokeObjectURL(img.src);
+                previewContainer.appendChild(img);
+                analyzeBtn.disabled = false;
+            } else {
+                analyzeBtn.disabled = true;
+            }
+        });
+
+        analyzeBtn.addEventListener('click', async function () {
+            const file = imageInput.files[0];
+            if (!file) return;
+            analyzeBtn.disabled = true;
+            analyzeBtn.textContent = "Analyzing...";
+            extractedTextDiv.style.display = 'none';
+            analysisResultDiv.textContent = '';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/analyze-image', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                // Show verdict and reason
+                if (data.verdict && data.reason) {
+                    analysisResultDiv.innerHTML = `<strong>Verdict:</strong> ${data.verdict}<br><strong>Reason:</strong> ${data.reason}`;
+                    analysisResultDiv.style.display = "block";
+                } else if (data.reason) {
+                    analysisResultDiv.textContent = data.reason;
+                    analysisResultDiv.style.display = "block";
+                } else if (data.analysis) {
+                    analysisResultDiv.textContent = data.analysis;
+                    analysisResultDiv.style.display = "block";
+                } else {
+                    analysisResultDiv.textContent = "No analysis result.";
+                    analysisResultDiv.style.display = "block";
+                }
+            } catch (err) {
+                analysisResultDiv.textContent = "Error analyzing image.";
+                analysisResultDiv.style.display = "block";
+            }
+            analyzeBtn.disabled = false;
+            analyzeBtn.textContent = "Analyze Image";
+        });
+    </script>
+</body>
+
+</html>

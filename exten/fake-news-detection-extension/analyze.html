@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Analyze News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .analyze-container {
+            background: #fff;
+            padding: 2.5rem 2rem 2rem 2rem;
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 24px rgba(37, 99, 235, 0.10);
+            max-width: 420px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .analyze-container h2 {
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-align: center;
+        }
+
+        #input-text {
+            width: 100%;
+            min-height: 90px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 0.7rem;
+            padding: 0.9rem;
+            font-size: 1rem;
+            margin-bottom: 1.1rem;
+            background: #f1f5f9;
+            resize: none;
+            color: #1e293b;
+        }
+
+        #check-button {
+            background: linear-gradient(90deg, #2563eb 60%, #1e40af 100%);
+            color: #fff;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.85rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+            margin-bottom: 1.2rem;
+        }
+
+        #check-button:hover {
+            background: linear-gradient(90deg, #1e40af 60%, #2563eb 100%);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.13);
+        }
+
+        .result {
+            min-height: 40px;
+            background: #f8fafc;
+            border-radius: 0.7rem;
+            padding: 0.8rem;
+            font-size: 1rem;
+            color: #1e293b;
+            border: 1px solid #e5e7eb;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="analyze-container">
+        <h2>News Analysis</h2>
+        <textarea id="input-text" placeholder="Selected text will appear here..." readonly></textarea>
+        <button id="check-button">Check News</button>
+        <a href="audio-analysis.html" class="btn btn-primary">Audio Analysis</a>
+        <div id="response-output" class="result"></div>
+    </div>
+    <script src="analyze.js"></script>
+</body>
+
+</html>

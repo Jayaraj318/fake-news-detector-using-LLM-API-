@@ -1,0 +1,32 @@
+.image-analysis-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.image-analysis-header h1 {
+    font-size: 2rem;
+    color: var(--dark, #22223b);
+    margin-bottom: 0.5rem;
+}
+
+.image-analysis-header p {
+    color: #64748b;
+    font-size: 1.08rem;
+}
+
+.image-analysis-card {
+    max-width: 480px;
+    margin: 3rem auto 2rem auto;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg, 0 2px 12px rgba(0, 0, 0, 0.07));
+    padding: 2.5rem 2rem 2rem 2rem;
+    animation: slideUp 0.5s ease;
+}
+
+.footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.95rem;
+    padding: 1.5rem 0 0.5rem 0;
+}

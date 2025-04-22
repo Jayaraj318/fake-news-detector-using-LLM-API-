@@ -1,0 +1,196 @@
+.contact-main {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+.contact-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 4rem 2rem 2rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.contact-hero-content {
+    flex: 1 1 350px;
+}
+
+.contact-hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary, #2563eb);
+}
+
+.contact-hero-content .highlight {
+    color: var(--secondary, #f43f5e);
+}
+
+.contact-hero-content p {
+    font-size: 1.15rem;
+    color: #334155;
+    margin-bottom: 2rem;
+}
+
+.contact-cards {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(37,99,235,0.07);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 220px;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.3s;
+}
+
+.contact-card:hover {
+    box-shadow: 0 8px 32px rgba(37,99,235,0.13);
+}
+
+.contact-icon {
+    background: linear-gradient(45deg, #2563eb22, #f43f5e22);
+    border-radius: 50%;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon i {
+    color: var(--primary, #2563eb);
+    font-size: 1.5rem;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.contact-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem 0;
+    color: #1e293b;
+}
+
+.contact-card a {
+    color: var(--primary, #2563eb);
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.contact-hero-img {
+    flex: 1 1 300px;
+    max-width: 350px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(37,99,235,0.08);
+    object-fit: cover;
+    width: 100%;
+    min-width: 220px;
+}
+
+.contact-form-section {
+    background: #f1f5f9;
+    border-radius: 18px;
+    max-width: 700px;
+    margin: 2.5rem auto 0 auto;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.04);
+    animation: slideUp 0.7s;
+}
+
+.contact-form-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary, #2563eb);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.9rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #f8fafc;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary, #2563eb);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+    background: white;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(45deg, var(--primary, #2563eb), var(--primary-dark, #1e40af));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    margin-top: 0.5rem;
+}
+
+.contact-btn:hover {
+    background: linear-gradient(45deg, var(--primary-dark, #1e40af), var(--primary, #2563eb));
+    box-shadow: 0 4px 15px rgba(37,99,235,0.18);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .contact-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1rem 1rem 1rem;
+    }
+    .contact-hero-img {
+        margin-top: 2rem;
+    }
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}

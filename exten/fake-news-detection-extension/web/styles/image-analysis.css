@@ -1,0 +1,112 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 420px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    padding: 32px 24px 24px 24px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #222;
+}
+
+.upload-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-analysis-section {
+    max-width: 480px;
+    margin: 40px auto 32px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    padding: 28px 22px 22px 22px;
+}
+
+.image-analysis-section h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    color: #1a1a1a;
+}
+
+.image-fake-news-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#image-input {
+    flex: 1;
+    margin-bottom: 8px;
+}
+
+#analyze-image-btn {
+    padding: 8px 16px;
+    background: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#analyze-image-btn:disabled {
+    background: #b0c4de;
+    cursor: not-allowed;
+}
+
+#image-preview-container {
+    text-align: center;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 180px;
+    border-radius: 8px;
+    margin-top: 6px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+.extracted-text {
+    background: #f3f6fa;
+    border-left: 4px solid #0078d4;
+    padding: 8px 12px;
+    font-size: 0.97rem;
+    color: #333;
+    border-radius: 6px;
+    word-break: break-word;
+}
+
+.analysis-result {
+    font-size: 1.03rem;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #f9f9f9;
+    min-height: 28px;
+    color: #222;
+}
+
+.analysis-result.error {
+    background: #ffeaea;
+    color: #b30000;
+}
+
+.analysis-result.success {
+    background: #eaffea;
+    color: #1a7f37;
+}

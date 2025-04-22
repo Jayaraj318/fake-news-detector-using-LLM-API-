@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Fake News Detection</h2>
+        <textarea id="input-text" placeholder="Paste or type news article here..."></textarea>
+        <button id="check-button">Check News</button>
+        <div id="response-output" class="result"></div>
+        <button id="webview-button" class="secondary-btn">Web View</button>
+        <button id="image-analysis-btn">Image Analysis</button>
+    </div>
+    <script src="popup.js"></script>
+    <script>
+        document.getElementById('image-analysis-btn').onclick = function () {
+            window.open('https://your-domain.com/image-analysis', '_blank');
+        };
+    </script>
+</body>
+
+</html>

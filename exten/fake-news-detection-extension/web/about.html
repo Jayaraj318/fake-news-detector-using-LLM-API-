@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About - Fake News Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">Fake News Detection</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="analyze.html">Analyze</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="about-main">
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>About <span class="highlight">Fake News Detection</span></h1>
+                <p>
+                    Empowering you to spot misinformation with AI. Our platform leverages advanced language models to
+                    analyze news articles and help you make informed decisions.
+                </p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+                alt="AI News Analysis" class="about-hero-img">
+        </section>
+
+        <section class="about-cards">
+            <div class="about-card">
+                <div class="about-card-icon"><i data-feather="cpu"></i></div>
+                <h2>How It Works</h2>
+                <ul>
+                    <li>Paste or enter a news article on the <a href="analyze.html">Analyze</a> page.</li>
+                    <li>Our backend securely sends the text to Gemini LLM via FastAPI.</li>
+                    <li>Receive a verdict (Real or Fake) with a clear, human-readable explanation.</li>
+                </ul>
+            </div>
+            <div class="about-card">
+                <div class="about-card-icon"><i data-feather="target"></i></div>
+                <h2>Our Mission</h2>
+                <p>
+                    In a world where misinformation spreads rapidly, our mission is to provide everyone with a simple,
+                    effective tool to verify news before sharing or believing it.
+                </p>
+            </div>
+            <div class="about-card">
+                <div class="about-card-icon"><i data-feather="users"></i></div>
+                <h2>Who We Are</h2>
+                <p>
+                    We are a team of AI researchers, developers, and journalists passionate about truth and digital
+                    literacy. Our goal is to make fact-checking accessible to all.
+                </p>
+            </div>
+        </section>
+
+        <section class="about-faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Is my data safe?</h3>
+                    <p>Yes. We do not store your articles. All analysis is performed securely and anonymously.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How accurate is the AI?</h3>
+                    <p>Our system uses state-of-the-art language models and is continuously improved. However, always
+                        use your own judgment alongside our results.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use this for any language?</h3>
+                    <p>Currently, we support English. More languages are coming soon!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div>© 2025 Fake News Detection. All rights reserved.</div>
+    </footer>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Fake News Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">Fake News Detection</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="analyze.html">Analyze</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="contact-main">
+        <section class="contact-hero">
+            <div class="contact-hero-content">
+                <h1>Contact <span class="highlight">Our Team</span></h1>
+                <p>
+                    Have questions, feedback, or want to collaborate? Reach out to us and we’ll get back to you as soon
+                    as possible.
+                </p>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i data-feather="mail"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:info@fakenewsdetector.com">info@fakenewsdetector.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon"><i data-feather="github"></i></div>
+                        <div>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/your-repo" target="_blank">Fake News Detector on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=500&q=80"
+                alt="Contact Us" class="contact-hero-img">
+        </section>
+
+        <section class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            <form class="contact-form" autocomplete="off">
+                <div class="form-group">
+                    <label for="name"><i data-feather="user"></i> Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i data-feather="mail"></i> Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message"><i data-feather="message-square"></i> Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Type your message..."
+                        required></textarea>
+                </div>
+                <button type="submit" class="contact-btn">
+                    <span>Send Message</span>
+                    <i data-feather="send"></i>
+                </button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <div>© 2025 Fake News Detection. All rights reserved.</div>
+    </footer>
+    <script>
+        feather.replace();
+        // Optional: Prevent default form submission for demo
+        document.querySelector('.contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+
+</html>

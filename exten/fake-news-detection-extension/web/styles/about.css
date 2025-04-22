@@ -1,0 +1,175 @@
+.about-main {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+.about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 4rem 2rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.about-hero-content {
+    flex: 1 1 350px;
+}
+
+.about-hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary, #2563eb);
+}
+
+.about-hero-content .highlight {
+    color: var(--secondary, #f43f5e);
+}
+
+.about-hero-content p {
+    font-size: 1.2rem;
+    color: #334155;
+    margin-bottom: 0;
+}
+
+.about-hero-img {
+    flex: 1 1 300px;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
+    object-fit: cover;
+    width: 100%;
+    min-width: 250px;
+}
+
+.about-cards {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 3rem auto 2rem auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(37, 99, 235, 0.07);
+    padding: 2rem 2rem 1.5rem 2rem;
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: slideUp 0.7s;
+}
+
+.about-card-icon {
+    background: linear-gradient(45deg, #2563eb22, #f43f5e22);
+    border-radius: 50%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-card-icon i {
+    color: var(--primary, #2563eb);
+    font-size: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+.about-card h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    color: #1e293b;
+}
+
+.about-card ul {
+    padding-left: 1.2rem;
+    margin: 0;
+    color: #475569;
+    font-size: 1rem;
+}
+
+.about-card p {
+    color: #475569;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.about-card a {
+    color: var(--primary, #2563eb);
+    text-decoration: underline;
+}
+
+.about-faq {
+    background: #f1f5f9;
+    border-radius: 18px;
+    max-width: 900px;
+    margin: 2rem auto 0 auto;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.04);
+}
+
+.about-faq h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary, #2563eb);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-item h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #1e293b;
+}
+
+.faq-item p {
+    color: #475569;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem 0 0.5rem 0;
+    color: #64748b;
+    font-size: 1rem;
+    background: transparent;
+}
+
+@media (max-width: 900px) {
+    .about-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 1rem 1rem 1rem;
+    }
+
+    .about-hero-img {
+        margin-top: 2rem;
+    }
+
+    .about-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+}

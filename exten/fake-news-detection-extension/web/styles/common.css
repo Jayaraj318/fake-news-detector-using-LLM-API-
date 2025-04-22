@@ -1,0 +1,111 @@
+/* CSS Variables */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary: #f43f5e;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --success: #22c55e;
+    --error: #ef4444;
+    --warning: #f59e0b;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 24px rgba(37, 99, 235, 0.07);
+    --shadow-lg: 0 8px 32px rgba(37, 99, 235, 0.08);
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--primary, #2563eb);
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-logo i {
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links li a.active,
+.nav-links li a:hover {
+    color: var(--primary, #2563eb);
+    border-bottom: 2px solid var(--primary, #2563eb);
+}
+
+/* Utility Classes */
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.highlight {
+    color: var(--secondary, #f43f5e);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    color: #64748b;
+    font-size: 1rem;
+    background: transparent;
+}
